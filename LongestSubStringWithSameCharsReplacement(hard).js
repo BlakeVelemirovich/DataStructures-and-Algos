@@ -1,0 +1,3 @@
+function longestSubStringSameCharsReplacement(arr, k) {
+    
+}
