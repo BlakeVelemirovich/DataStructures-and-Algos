@@ -8,7 +8,7 @@ function longestSubstringWithDistinctChars(arr) {
         const rightChar = arr[windowEnd];
 
         if (rightChar in stringHash) {
-            windowStart = Math.max(windowStart, windowEnd);
+            windowStart = Math.max(windowStart, stringHash[rightChar] + 1);
 
         }
         
