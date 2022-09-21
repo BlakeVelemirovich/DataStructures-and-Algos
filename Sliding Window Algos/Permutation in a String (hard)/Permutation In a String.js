@@ -22,11 +22,22 @@ function permutationChecker(arr, pattern) {
                 matched++;
             }
         }
+        //checking to see if our number of matches equal the total number of saved keys, if so we have a permutation
         if (Object.keys(patternMap).length === matched) {
             return true;
         }
-
+        //shrink window if it is larger than the given pattern
+        if (windowEnd >= pattern.length - 1) {
+            const leftChar = arr[windowStart];
+            windowStart++;
+            if (leftChar in patternMap) {
+                if (patternMap[leftChar] === 0) {
+                    matched--;
+                }
+                patternMap[leftChar]++;
+            }
     }
+    return false;
 }
 
 
