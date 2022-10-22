@@ -1,5 +1,5 @@
 var minSubArrayLen = function(target, nums) {
-    let currentMinimumLength;
+    let currentMinimumLength = Infinity;
     let windowStart = 1;
     let sum = 0;
 
@@ -7,10 +7,14 @@ var minSubArrayLen = function(target, nums) {
         let rightChar = nums[windowEnd]; 
         sum += rightChar;
 
-        if (rightChar >= k) {
+        while (sum >= target) {
             currentMinimumLength = Math.min(currentMinimumLength, windowEnd - windowStart + 1);
+            sum -= nums[windowStart];
+            windowStart++;
         }
 
     }
+
+    return currentMinimumLength;
 
 };
