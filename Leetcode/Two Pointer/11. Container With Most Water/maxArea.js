@@ -4,26 +4,10 @@ var maxArea = function(height) {
     let result = 0;
 
     while (leftPointer < rightPointer) {
-        if (height[leftPointer] < height[rightPointer]) {
-            lineHeight = height[leftPointer];
-        }
-        else {
-            lineHeight = height[rightPointer];
-        }
-        result = Math.max(result, width * lineHeight);
+        let area = (rightPointer - leftPointer) * Math.min(height[rightPointer], height[leftPointer]);
+        result = Math.max(result, area);
 
-        if (height[leftPointer] < height[rightPointer]) {
-            leftPointer++;
-        }
-        else if (height[leftPointer] > height[rightPointer]) {
-            rightPointer--;
-        }
-        else if (height[leftPointer + 1] > height[rightPointer + 1]) {
-            leftPointer++;
-        }
-        else {
-            rightPointer--;
-        }
+        height[leftPointer] <= height[rightPointer] ? leftPointer++ : rightPointer--;
         
     }
     return result;
