@@ -1,0 +1,5 @@
+var hasCycle = function(head) {
+    
+    
+
+};
