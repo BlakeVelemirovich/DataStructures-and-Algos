@@ -23,7 +23,10 @@ var reversedMid = function(node) {
     let [prev, crnt, nxt] = [null, node, null];
 
     while (crnt !== null) {
-        
+        next = crnt.next;
+        crnt.next = prev;
+        prev = crnt;
+        crnt = next;
     }
     
     return prev;
