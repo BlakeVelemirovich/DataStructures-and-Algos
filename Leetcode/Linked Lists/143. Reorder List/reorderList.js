@@ -1,28 +1,20 @@
 var findMid = function(node) {
 
-    let slow = node;
-    let fast = node;
+    let [slow, fast] = [node, node];
 
-    while(fast !== null) {
-        if (fast.next !== null && fast.next.next !== null) {
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        else {
-            fast = null;
-        }
+    while (fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
     }
 
-    const midPoint = slow.next;
-    slow.next = null;
-    return midPoint;
+    return slow;
 }
 
-var reversedMid = function(node) {
+var reversed = function(node) {
 
     let [prev, crnt, nxt] = [null, node, null];
 
-    while (crnt !== null) {
+    while (crnt) {
         next = crnt.next;
         crnt.next = prev;
         prev = crnt;
@@ -32,8 +24,25 @@ var reversedMid = function(node) {
     return prev;
 }
 
+var mergeLists = function(list1, list2) {
+
+    let [ first, next, second ] = [list1, null, list2];
+
+    while (second.next) { 
+        next = first.next;
+        first.next = second;
+        first = next;
+
+        next = second.next;
+        second.next = first;
+        second = next;
+    }
+
+}
+
 var reorderList = function(head) {
     
     let midPoint = findMid(head);
-    let reversedMid = reverseList(midPoint);
+    let reversedMid = reversed(midPoint);
+    let reorderedList = mergeLists(head, reversedMid);
 };
