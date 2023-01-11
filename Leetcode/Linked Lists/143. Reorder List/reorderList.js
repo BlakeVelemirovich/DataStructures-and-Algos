@@ -19,7 +19,14 @@ var findMid = function(node) {
 }
 
 var reversedMid = function(node) {
+
+    let [prev, crnt, nxt] = [null, node, null];
+
+    while (crnt !== null) {
+        
+    }
     
+    return prev;
 }
 
 var reorderList = function(head) {
