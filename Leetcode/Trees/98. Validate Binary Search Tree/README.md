@@ -1,11 +1,3 @@
-98. Validate Binary Search Tree
+https://leetcode.com/problems/binary-tree-level-order-traversal/
 
-Given the root of a binary tree, determine if it is a valid binary search tree (BST).
-
-A valid BST is defined as follows:
-
-    The left
-    subtree
-    of a node contains only nodes with keys less than the node's key.
-    The right subtree of a node contains only nodes with keys greater than the node's key.
-    Both the left and right subtrees must also be binary search trees.
+Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
